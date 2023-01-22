@@ -1,0 +1,5 @@
+*-backups
+.DS_Store
+build
+fp-info-cache
+gerber.zip

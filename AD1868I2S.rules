@@ -11,7 +11,7 @@
     (via_costs 50)
     (plane_via_costs 5)
     (start_ripup_costs 100)
-    (start_pass_no 326)
+    (start_pass_no 802)
     (layer_rule F.Cu
       (active on)
       (preferred_direction horizontal)
@@ -61,10 +61,10 @@
   (class default
     "/I2S_MCK" /LL /DL /CK /DR /LR /TCK /TDO
     /TMS "unconnected-(J2-Pad6)" "unconnected-(J2-Pad7)" "unconnected-(J2-Pad8)" /TDI "/I2S_CLK" "/I2S_DT" "/I2S_LR"
-    "unconnected-(U1-Pad6)" /DIP1 /DIP2 "unconnected-(U1-Pad12)" "unconnected-(U1-Pad13)" "unconnected-(U1-Pad14)" "unconnected-(U1-Pad15)" "unconnected-(U1-Pad18)"
+    "unconnected-(U1-Pad6)" /XCK "/XCK_X" "unconnected-(U1-Pad12)" "unconnected-(U1-Pad13)" "unconnected-(U1-Pad14)" "unconnected-(U1-Pad15)" "unconnected-(U1-Pad18)"
     "unconnected-(U1-Pad19)" "unconnected-(U1-Pad20)" "unconnected-(U1-Pad21)" "unconnected-(U1-Pad22)" "unconnected-(U1-Pad23)" "unconnected-(U1-Pad25)" "unconnected-(U1-Pad27)" "unconnected-(U1-Pad28)"
     "unconnected-(U1-Pad31)" "unconnected-(U1-Pad33)" "unconnected-(U1-Pad34)" "unconnected-(U1-Pad38)" "unconnected-(U1-Pad39)" "unconnected-(X1-Pad1)" "unconnected-(J3-Pad3)" "unconnected-(J3-Pad4)"
-    "unconnected-(J3-Pad9)" "unconnected-(J3-Pad10)" "Net-(R1-Pad1)" "Net-(R2-Pad1)"
+    "unconnected-(J3-Pad9)" "unconnected-(J3-Pad10)" "unconnected-(U1-Pad8)" "unconnected-(U1-Pad10)" "unconnected-(U3-Pad6)" "unconnected-(U3-Pad8)" "unconnected-(U3-Pad11)"
     (clearance_class default)
     (via_rule default)
     (rule

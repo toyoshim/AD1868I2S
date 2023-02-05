@@ -74,8 +74,6 @@ set_global_assignment -name VERILOG_FILE AD1868I2C.v
 set_global_assignment -name SDC_FILE AD1868I2C.sdc
 set_location_assignment PIN_37 -to i_i2s_mclk
 set_location_assignment PIN_40 -to i_ad_clk
-set_location_assignment PIN_10 -to i_dip[1]
-set_location_assignment PIN_8 -to i_dip[0]
 set_location_assignment PIN_35 -to i_ad_data_l
 set_location_assignment PIN_43 -to i_ad_data_r
 set_location_assignment PIN_42 -to i_ad_latch_l

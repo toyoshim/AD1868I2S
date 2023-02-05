@@ -5,6 +5,7 @@
 // Practical input signal on 054986A;
 // LR/LL :  L  L  L  L  L  L  L  L  L  L  L  L  L  L  L  L  H  H  H  H  H  H  H  H  H  H  H  H  H  H  H  H
 // DR/DL : NA NA NA NA NA NA NA NA NA NA NA NA NA NA 17 16 15 14 13 12 11 10  9  8  7  6  5  4  3  2  1  0
+// DATA[17:0] is signed value, and DATA[0] seems always 0, and practical sampling width is 17-bits.
 module DataHolder(i_clk, i_latch, i_data_l, i_data_r, o_data_l, o_data_r);
 
 	input i_clk;

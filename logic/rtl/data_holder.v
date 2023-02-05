@@ -16,54 +16,29 @@ module DataHolder(i_clk, i_latch, i_data_l, i_data_r, o_data_l, o_data_r);
 	output [15:0] o_data_l;
 	output [15:0] o_data_r;
 	
-	wire [15:0] w_data_l;
-	wire [15:0] w_data_r;
-	wire [15:0] w_en;
+	wire w_latchl;
 
-	reg [4:0] r_count;
 	reg r_latch_d;
-	reg r_data;
+	reg [17:0] r_shift_l;
+	reg [17:0] r_shift_r;
+	reg [17:0] r_data_l;
+	reg [17:0] r_data_r;
 	
-	assign o_data_l = w_data_l;
-	assign o_data_r = w_data_r;
+	assign w_latch = r_latch_d & !i_latch;
+	assign o_data_l = r_data_l[17:2];
+	assign o_data_r = r_data_r[17:2];
 	
 	always @ (posedge i_clk) begin
 		r_latch_d <= i_latch;
 	end
-
+	
 	always @ (posedge i_clk) begin
-		if (r_latch_d & !i_latch) begin
-			r_count <= 5'b00000;
-		end else begin
-			r_count <= r_count + 5'b00001;
+		r_shift_l <= { r_shift_l[16:0], i_data_l };
+		r_shift_r <= { r_shift_r[16:0], i_data_r };
+		if (w_latch) begin
+			r_data_l <= r_shift_l;
+			r_data_r <= r_shift_r;
 		end
 	end
-	
-	assign w_en = {
-		r_count == 5'b01101,  // 13
-		r_count == 5'b01110,  // 14
-		r_count == 5'b01111,  // 15
-		r_count == 5'b10000,  // 16
-		r_count == 5'b10001,  // 17
-		r_count == 5'b10010,  // 18
-		r_count == 5'b10011,  // 19
-		r_count == 5'b10100,  // 20
-		r_count == 5'b10101,  // 21
-		r_count == 5'b10110,  // 22
-		r_count == 5'b10111,  // 23
-		r_count == 5'b11000,  // 24
-		r_count == 5'b11001,  // 25
-		r_count == 5'b11010,  // 26
-		r_count == 5'b11011,  // 27
-		r_count == 5'b11100   // 28
-	};
-
-	generate
-		genvar i;
-		for (i = 0; i < 16; i = i + 1) begin: data
-			BitHolder l(i_clk, w_en[i], i_data_l, w_data_l[i]);
-			BitHolder r(i_clk, w_en[i], i_data_r, w_data_r[i]);
-		end
-	endgenerate
 
 endmodule

@@ -19,6 +19,8 @@ module I2sEncoder(i_rst_x, i_mclk, i_data_l, i_data_r, o_bclk, o_lrclk, o_sdata)
 	
 	reg [1:0] r_clkdiv;
 	reg [5:0] r_count;
+	reg [15:0] r_data_l;
+	reg [15:0] r_data_r;
 	
 	wire w_clk;
 	
@@ -39,6 +41,13 @@ module I2sEncoder(i_rst_x, i_mclk, i_data_l, i_data_r, o_bclk, o_lrclk, o_sdata)
 			r_count <= 6'b000000;
 		end else begin
 			r_count <= r_count + 6'b000001;
+		end
+	end
+
+	always @ (posedge w_clk) begin
+		if (r_count == 6'b000000) begin
+			r_data_l <= i_data_l;
+			r_data_r <= i_data_r;
 		end
 	end
 
@@ -84,6 +93,6 @@ module I2sEncoder(i_rst_x, i_mclk, i_data_l, i_data_r, o_bclk, o_lrclk, o_sdata)
 		end
 	endfunction
 
-	assign o_sdata = select({i_data_l, i_data_r}, r_count);
+	assign o_sdata = select({r_data_l, r_data_r}, r_count);
 
 endmodule

@@ -18,13 +18,13 @@
 #
 # Quartus II 64-Bit
 # Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-# Date created = 03:01:52  12月 06, 2022
+# Date created = 00:53:58  2月 07, 2023
 #
 # -------------------------------------------------------------------------- #
 
 QUARTUS_VERSION = "13.0"
-DATE = "03:01:52  12月 06, 2022"
+DATE = "00:53:58  2月 07, 2023"
 
 # Revisions
 
-PROJECT_REVISION = "AD1868I2C"
+PROJECT_REVISION = "epm3064_2"

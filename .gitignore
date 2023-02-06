@@ -1,5 +1,6 @@
 *-backups
 *.bak
+*.qws
 *.rpt
 *.vcd
 .DS_Store
@@ -9,3 +10,4 @@ fp-info-cache
 gerber.zip
 incremental_db
 output_files
+simulation

@@ -6,48 +6,32 @@
 // BCLK:  6.144 MHz
 // LR  : 96     KHZ
 // I2S format.
-module I2sEncoder(i_rst_x, i_mclk, i_data_l, i_data_r, o_bclk, o_lrclk, o_sdata);
+module I2sEncoder(i_rst_x, i_bclk, i_data_l, i_data_r, o_bclk, o_lrclk, o_sdata, o_latch);
 
 	input i_rst_x;
-	input i_mclk;
+	input i_bclk;
 	input[15:0] i_data_l;
 	input[15:0] i_data_r;
 
 	output o_bclk;
 	output o_lrclk;
 	output o_sdata;
+	output o_latch;
 	
 	reg [1:0] r_clkdiv;
 	reg [5:0] r_count;
-	reg [15:0] r_data_l;
-	reg [15:0] r_data_r;
 	
 	wire w_clk;
 	
-	assign w_clk = !r_clkdiv[1];
-	assign o_bclk = r_clkdiv[1];
+	assign w_clk = !i_bclk;
 	assign o_lrclk = r_count[5];
-	
-	always @ (posedge i_mclk or negedge i_rst_x) begin
-		if (!i_rst_x) begin
-			r_clkdiv <= 2'b00;
-		end else begin
-			r_clkdiv <= r_clkdiv + 2'b01;
-		end
-	end
+	assign o_latch = r_count == 6'b000000;
 	
 	always @ (posedge w_clk or negedge i_rst_x) begin
 		if (!i_rst_x) begin
 			r_count <= 6'b000000;
 		end else begin
 			r_count <= r_count + 6'b000001;
-		end
-	end
-
-	always @ (posedge w_clk) begin
-		if (r_count == 6'b000000) begin
-			r_data_l <= i_data_l;
-			r_data_r <= i_data_r;
 		end
 	end
 
@@ -93,6 +77,6 @@ module I2sEncoder(i_rst_x, i_mclk, i_data_l, i_data_r, o_bclk, o_lrclk, o_sdata)
 		end
 	endfunction
 
-	assign o_sdata = select({r_data_l, r_data_r}, r_count);
+	assign o_sdata = select({i_data_l, i_data_r}, r_count);
 
 endmodule

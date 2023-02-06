@@ -87,3 +87,4 @@ set_location_assignment PIN_8 -to o_i2s_data_r[2]
 set_location_assignment PIN_6 -to o_i2s_data_r[1]
 set_location_assignment PIN_5 -to o_i2s_data_r[0]
 set_location_assignment PIN_43 -to o_sync_clk
+set_location_assignment PIN_44 -to o_i2s_bclk

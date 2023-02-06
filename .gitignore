@@ -4,6 +4,7 @@
 *.rpt
 *.vcd
 .DS_Store
+a.out
 build
 db
 fp-info-cache

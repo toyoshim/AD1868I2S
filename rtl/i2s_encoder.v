@@ -6,26 +6,24 @@
 // BCLK:  6.144 MHz
 // LR  : 96     KHZ
 // I2S format.
-module I2sEncoder(i_rst_x, i_bclk, i_data_l, i_data_r, o_bclk, o_lrclk, o_sdata, o_latch);
+module I2sEncoder(i_rst_x, i_bclk, i_data_l, i_data_r, o_lrclk, o_sdata, o_latch);
 
 	input i_rst_x;
 	input i_bclk;
 	input[15:0] i_data_l;
 	input[15:0] i_data_r;
 
-	output o_bclk;
 	output o_lrclk;
 	output o_sdata;
 	output o_latch;
 	
-	reg [1:0] r_clkdiv;
 	reg [5:0] r_count;
 	
 	wire w_clk;
 	
 	assign w_clk = !i_bclk;
 	assign o_lrclk = r_count[5];
-	assign o_latch = r_count == 6'b000000;
+	assign o_latch = r_count[5:3] == 3'b111;
 	
 	always @ (posedge w_clk or negedge i_rst_x) begin
 		if (!i_rst_x) begin

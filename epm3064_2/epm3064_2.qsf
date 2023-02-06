@@ -59,3 +59,32 @@ set_global_assignment -name EDA_INPUT_DATA_FORMAT EDIF -section_id eda_design_sy
 set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (Verilog)"
 set_global_assignment -name EDA_OUTPUT_DATA_FORMAT "VERILOG HDL" -section_id eda_simulation
 set_global_assignment -name MAX7000_DEVICE_IO_STANDARD "3.3-V LVTTL"
+set_location_assignment PIN_26 -to TCK
+set_location_assignment PIN_1 -to TDI
+set_location_assignment PIN_32 -to TDO
+set_location_assignment PIN_7 -to TMS
+set_location_assignment PIN_3 -to i_i2s_data_r[17]
+set_location_assignment PIN_5 -to i_i2s_data_r[16]
+set_location_assignment PIN_6 -to i_i2s_data_r[15]
+set_location_assignment PIN_8 -to i_i2s_data_r[14]
+set_location_assignment PIN_10 -to i_i2s_data_r[13]
+set_location_assignment PIN_12 -to i_i2s_data_r[12]
+set_location_assignment PIN_13 -to i_i2s_data_r[11]
+set_location_assignment PIN_14 -to i_i2s_data_r[10]
+set_location_assignment PIN_15 -to i_i2s_data_r[9]
+set_location_assignment PIN_18 -to i_i2s_data_r[8]
+set_location_assignment PIN_19 -to i_i2s_data_r[7]
+set_location_assignment PIN_20 -to i_i2s_data_r[6]
+set_location_assignment PIN_21 -to i_i2s_data_r[5]
+set_location_assignment PIN_22 -to i_i2s_data_r[4]
+set_location_assignment PIN_23 -to i_i2s_data_r[3]
+set_location_assignment PIN_25 -to i_i2s_data_r[2]
+set_location_assignment PIN_27 -to i_i2s_data_r[1]
+set_location_assignment PIN_28 -to i_i2s_data_r[0]
+set_location_assignment PIN_40 -to i_ad_data_l
+set_location_assignment PIN_2 -to i_ad_latch_pulse
+set_location_assignment PIN_42 -to i_i2s_bclk
+set_location_assignment PIN_43 -to i_sync_clk
+set_location_assignment PIN_44 -to o_i2s_latch
+set_location_assignment PIN_31 -to o_i2s_lrclk
+set_location_assignment PIN_33 -to o_i2s_sdata
